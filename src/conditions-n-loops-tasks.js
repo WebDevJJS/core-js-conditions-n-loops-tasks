@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
 /**
@@ -38,8 +38,14 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  let result;
+  if (a > b) {
+    result = a > c ? a : c;
+  } else {
+    result = b > c ? b : c;
+  }
+  return result;
 }
 
 /**
@@ -135,8 +141,12 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let palindrom = '';
+  for (let i = 0; i < str.length; i += 1) {
+    palindrom += str[str.length - 1 - i];
+  }
+  return str === palindrom;
 }
 
 /**
@@ -153,8 +163,15 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let idx = -1;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      idx = i;
+      break;
+    }
+  }
+  return idx;
 }
 
 /**
@@ -172,8 +189,17 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let temp = num;
+  let result = false;
+  while (temp > 0) {
+    if (temp % 10 === digit) {
+      result = true;
+      break;
+    }
+    temp = Math.round(temp / 10);
+  }
+  return result;
 }
 
 /**
